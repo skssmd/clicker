@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game">
+            <div class="first">
+                <h1>
+                    Click Counter
+                </h1>
+                <button class="start">Start</button>
+            </div>
+            <div class="second">
+                <div class="top">
+                    <div class="timer" id="some_div">  
+                        </div>
+                    <div class="score"></div>
+                </div>
+                <div class="clicker">
+                    <button class="click"><a id="start">Click me</a></button>
+                    <button class="click-result" style="display: none;"></button>
+                    <button class="retry"> <a>Retry</a></button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="scoreboard">
+            <h1>Scoreboard</h1>
+            <div id="scores">
+
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+<script>
+
+    var scores = [];
+    $('.start').click(function () { 
+        $('.first').hide();
+        $('.scoreboard').hide();
+        $('.second').show(); 
+        init();     
+    });
+
+    var c = 0;
+    $('.click').click(function () { 
+      c = c+1;
+      $('.score').html(c);
+        
+    });
+
+    $('.retry').click(function(){
+        $('.first').show();
+        $('.scoreboard').show();
+        $('.second').hide();
+    });
+
+
+
+    function init(){
+        var timeLeft = 2;
+        var timerId = setInterval(countdown, 1000);
+        $('.click').show();
+        
+        $('.click-result').hide();
+        $('.retry').hide();
+        $('#some_div').html(timeLeft + ' seconds remaining');
+
+        function countdown() {
+        if (timeLeft == 0) {
+                clearInterval(timerId);
+                $('.click-result').html("your score" +" " + c);
+                $('.click-result').show();
+                $('#some_div').html('Time\'s Up');
+                $('.click').hide();
+                $('.retry').show();
+                scoreboard(c);
+                c=0;
+            }
+        else {
+            $('#some_div').html(timeLeft + ' seconds remaining');
+            timeLeft--;
+        }
+        }
+    }
+
+    function scoreboard(result){
+        $('#scores').html('');
+        const data = {
+            'name': prompt("what is your name?"),
+            'score': c,
+        };
+
+        scores.push(data);
+        scores.sort(function(a, b){return b.score - a.score});
+        for (let score of scores) {
+            $('#scores').append('<div>'+'<a>'+score.name+'</a>'+'<a>'+score.score+'</a>'+'</div>');
+        }
+        
+    }
+
+    
+
+
+
+</script>
+</html>

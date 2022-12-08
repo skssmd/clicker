@@ -1,0 +1,115 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: wheat;
+    font-family: 'Times New Roman', Times, serif;
+}
+.container{
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+
+}
+.game{
+    display: flex;
+    justify-content: center;
+    margin-block: 100px;
+}
+.first{
+    height: 30vh;
+    width: 80vw;
+    display: block;
+    text-align: center;
+    background-color: ;
+    border: 5px solid rgb(38, 38, 82);
+    border-radius: 100px;
+    font-size: larger;
+}
+.first button{
+    background-color: wheat;
+    padding: 10px 50px;
+    font-size: larger;
+    border: 3px solid rgb(38, 38, 82);
+    border-radius: 50px;
+    transition: .5s;
+    font-weight: bold;
+}
+.first button:hover{
+    background-color: rgb(38, 38, 82);
+    color: wheat
+}
+.second{
+    display: none;
+    height: 60vh;
+    width: 70vw;
+    padding: 5vh 5vw;
+    text-align: center;
+    background-color: ;
+    border: 5px solid rgb(38, 38, 82);
+    border-radius: 20px;
+    justify-content: center;
+    font-size: larger;
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+}
+.clicker{
+    display: grid;
+}
+.click{
+    background-color: wheat;
+    padding: 10px 40px;
+    margin: 150px;
+    margin-bottom: 50px;
+    font-size: larger;
+    font-weight: bold;
+    border: 3px solid rgb(38, 38, 82);
+}
+.click:hover{
+    background-color: rgb(38, 38, 82);
+    color: wheat
+}
+.click-result   {
+    background-color: wheat;
+    padding: 10px 40px;
+    margin: 150px;
+    margin-bottom: 50px;
+    font-size: larger;
+    font-weight: bold;
+    border: 3px solid rgb(38, 38, 82);
+}
+.retry{
+    display: none;
+    background-color: wheat;
+    padding: 10px 40px;
+    margin-inline: 150px;
+    font-size: larger;
+    font-weight: bold;
+    border: 3px solid rgb(38, 38, 82);
+}
+.retry:hover{
+    background-color: rgb(38, 38, 82);
+    color: wheat
+}
+.scoreboard{
+    margin-inline: 25vw;
+   width: 50vw;
+}
+
+#scores{
+    list-style: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+}
+
+#scores div{
+    width: 50vw;
+    display: flex;
+    margin: 0px;
+    border: 1px solid rgb(0, 0, 46);
+    justify-content: space-evenly;
+}
+#scores div a{
+    width: 20px;
+}
